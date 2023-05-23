@@ -11,5 +11,7 @@ router.register('api/usuarios', UsuariosViewSet, rut)
 router.register('api/proveedores', ProveedoresViewSet, rut)
 router.register('api/productos', ProductoViewSet, rut)
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('api', include(router.urls))
+]
 
