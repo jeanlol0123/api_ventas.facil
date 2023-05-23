@@ -1,0 +1,11 @@
+<!--PLANTILLA QUE BASICAMENTE EXTIENDE LA DE BASE-->
+<!--INICIO-->
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% load static %}
+{% block content %}
+  <h1 class="text-primary font-weight-bolder" style="margin-left:30%">¡Bienvenido a Ventas.Facil!</h1>
+  <h3>En el menú podrás encontrar todo lo que necesitas para administrar tu negocio como gestor de personal, tus productos, gestor de proveedores, tus pedidos y tus facturas.</h3>
+  <h4>Ya que Sin Rodeos Ni Complicación,¡Ventas.Facil Es La Elección!</h4>
+  <img class="mainImg" src="{% static 'images/LogoBYN.png' %}" alt="logo"/>
+{% endblock %}

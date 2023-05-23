@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% load static %}
+{% block content %}
+<h3 class="text-primary font-weight-bolder">Facturación de productos</h3>
+
+<div class="row">
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="p-4 border-bottom bg-light">
+        <h4><i>Detalle de Productos:</i></h4>
+      </div>
+      <div class="card-body">
+        <form class="forms-sample">
+          <div class="form-group">
+            <label><b>Seleccione el producto</b></label>
+            <input class="form-control" list="datalistOptions" placeholder="Seleccione el producto" style="width: 90%;">
+            <datalist id="datalistOptions">
+              <option value="Coca-Cola 400mL">
+              <option value="Margarita Pollo 105G">
+              <option value="Sprite 1.5L">
+              <option value="Chocorramo">
+              <option value="Chocolatina Jet">
+            </datalist>
+            <button class="btn btn-warning" style="height: calc(1.5em + 0.75rem + 2px);">+</button>
+          </div>
+        </form>
+        <div class="card-body">
+          <form class="forms-sample">
+            <div class="form-group">
+              <table class="table responsive nowrap" id="personas">
+                <thead>
+                  <th class="tead1" data-priority="2">Código</th>
+                  <th class="tead1" data-priority="1">Producto</th>
+                  <th class="tead1" data-priority="4" style="width: 16%;">Cantidad</th>
+                  <th class="tead1" data-priority="6">Costo unit.</th>
+                  <th class="tead1" data-priority="5">Subtotal</th>
+                  <th class="tead1" data-priority="3">Eliminar</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Chocolatina</td>
+                    <td>
+                      <input type="text" class="form-control" style="max-width: 80%;" value="1">
+                    </td>
+                    <td>$2.000</td>
+                    <td>$6.000</td>
+                    <td>
+                      <button class="btn btn-danger">Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+        <button class="btn btn-success" style="height: 35px;width: 110px;">Guardar</button>
+        <button class="btn btn-danger" style="width: 110px; height:  35px">Eliminar</button>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 d-flex align-items-stretch grid-margin">
+      <div class="row flex-grow">
+        <div class="col-12">
+          <div class="card">
+            <div class="p-4 border-bottom bg-light">
+              <h4><i>Detalle de Factura:</i></h4>
+            </div>
+            <div class="card-body">
+              <form class="forms-sample">
+                <div class="form-group">
+                  <label><b>Fecha</b></label>
+                  <div class="form-group" id="current_date">
+                  </div>
+                  <div class="form-group">
+                    <label><b>Vendedor:</b></label>  
+                  </div>
+                  <div class="form-group">
+                    <label>*Nombre de usuario:*</label>  
+                  </div>
+                  <div class="form-group">
+                    <label><b>Cliente:</label>
+                    <input type="text" class="form-control" placeholder="0"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Subtotal:</label>
+                    <input type="text" class="form-control" placeholder="0.00" disabled/>
+                  </div>
+                  <div class="form-group">
+                    <label>Iva:</label>
+                    <div class="form-group">
+                      <input type="number" class="form-control" value="0.00"/>                     
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Total:</label>
+                    <input type="text" class="form-control" placeholder="0.00" disabled/>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    date = new Date();
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+
+
+    
+    $(document).ready(function () {
+      $("#personas").DataTable(param_lang());
+    });
+    function param_lang() {
+      var params = {
+        language: {
+          lengthMenu: "Mostrar _MENU_ registros por página",
+          zeroRecords: "No hay resultados",
+          info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+          infoEmpty: "No hay resultados",
+          infoFiltered: "(filtrando sobre _MAX_ registros)",
+          search: "Buscar",
+          paginate: {
+            first: "Primer",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior",
+          },
+        },
+        pageLength: 25,
+      };
+
+      return params;
+    }
+  </script>
+{% endblock %}

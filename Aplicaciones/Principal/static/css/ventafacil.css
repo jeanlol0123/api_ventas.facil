@@ -1,0 +1,56 @@
+/*CLASES MANUALES*/
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+.mainImg{
+    min-width: 20%;
+    max-width: 30%;
+    margin-left: 30%;
+    opacity: 0.3;
+}
+
+.sideImg{
+    max-width: 5%;
+    margin-top: 20px;
+}
+
+.buscar{
+    width: 80%;
+    height: calc(1.5em + 0.75rem + 2px);
+    border: 1px solid #ced4da;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.tead{
+    vertical-align: middle;
+    background: #a3bad2;
+}
+
+table{
+    text-align: center;
+    font-size: 20px !important;
+}
+
+
+.btn-1 {
+    background-color: transparent;
+    border: transparent;
+    position: fixed;
+    bottom: 17px;
+    right: 50px;
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+
+.iconsMenu{
+    position: absolute;
+    left: 30px;
+    display: block;
+}

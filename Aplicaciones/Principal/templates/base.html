@@ -1,0 +1,138 @@
+<!--PLANTILLA BASE QUE EXTIENDE TODOS LO ARCHIVOS-->
+<!--Ruta para activar los archivos statics en la plantilla de html-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ventasfacil</title>
+    <link rel="stylesheet" href="{% static '/vendors/iconfonts/ionicons/dist/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static '/vendors/iconfonts/ionicons/dist/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static '/vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static '/vendors/css/vendor.bundle.addons.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shared/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/demo_1/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/ventafacil.css' %}">
+    <link rel="stylesheet" href="{% static '/css/modal.css' %} ">
+    <link rel="stylesheet" href="{% static '/css/tipography.css' %}">
+    <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}" />
+    <link href="{% static '/Datatables/DataTables-1.13.4/css/jquery.dataTables.css' %}" rel="stylesheet" />
+    <link href="{% static '/Datatables/Responsive-2.4.1/css/responsive.dataTables.css' %} " rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="{% static '/images/LogoBYN.png' %}" alt="logo" style="max-width: 85%; margin-top:10px;" /> </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="{% static '/images/LogoBYN.png' %}" alt="logo" /> </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+          <ul class="navbar-nav">
+            <li class="nav-item font-weight-semibold d-none d-lg-block">
+              <h1 class="font-weight-bolder">Ventas.Facil</h1>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      
+
+      <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="{% static '/images/faces/face8.jpg' %}" alt="profile image">
+                  <div class="dot-indicator bg-success"></div>
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">*Nombre de usuario*</p>
+                  <p class="designation">*Rol de Usuario*</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item nav-category" style="text-align: center;">Menú</li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Principal:inicio' %}" onclick="menu(0)">
+                <img class="iconsMenu" src="{% static '/images/IconsMenu/bxs-home.svg' %}" alt="users">
+                <span class="menu-title" style="margin: 20px;">Inicio</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Principal:personal' %}" onclick="menu(1)">
+                <img class="iconsMenu" src="{% static '/images/IconsMenu/bxs-user-account.svg' %}" alt="users">
+                <span class="menu-title" style="margin: 20px;">Personal</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Principal:productos' %}" onclick="menu(2)">
+                <img class="iconsMenu" src="{% static '/images/IconsMenu/bx-spreadsheet.svg' %}" alt="users">
+                <span class="menu-title" style="margin: 20px;">Productos</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Principal:proveedores' %}" onclick="menu(3)">
+                <img class="iconsMenu" src="{% static '/images/IconsMenu/bxs-truck.svg' %}" alt="users">
+                <span class="menu-title" style="margin: 20px;">Proveedores</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Principal:facturas' %}" onclick="menu(5)">
+                <img class="iconsMenu" src="{% static '/images/IconsMenu/bx-money-withdraw.svg' %}" alt="users">
+                <span class="menu-title" style="margin: 20px;">Facturar</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Principal:login' %}" onclick="menu(6)">
+                <img class="iconsMenu" src="{% static '/images/IconsMenu/bx-log-out.svg' %}" alt="users">
+                <span class="menu-title" style="margin: 20px;">Cerrar sesión</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <!-- Page Title Header Ends-->
+            <div class="row">
+              <div class="col-md-12 grid-margin">
+                <div class="card">
+                  <!-- CARGA DE CONTENIDO -->
+                  <div class="card-body">
+                    {% block content %} 
+                    {% endblock %}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+              <div class="container-fluid clearfix">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Ventasfacil
+                  2023</span>
+              </div>
+            </footer>
+            <!-- partial -->
+          </div>
+        </div>
+      </div>
+  </body>
+<script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+<script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+<script src="{% static 'Datatables/DataTables-1.13.4/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'Datatables/Responsive-2.4.1/js/dataTables.responsive.js' %}"></script>
+<script src="{% static 'js/shared/off-canvas.js' %}"></script>
+<script src="{% static 'js/shared/misc.js' %}"></script>
+<script src="{% static 'js/demo_1/dashboard.js' %}"></script>
+<script src="{% static 'js/menu.js' %}"></script>
+<script src="{% static 'js/modal.js' %}"></script>
+</html>
