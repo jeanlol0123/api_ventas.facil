@@ -4,9 +4,12 @@ from .api import UsuariosViewSet,ProductoViewSet,ProveedoresViewSet
 
 #API BY jeanlol
 router = routers.DefaultRouter()
-router.register(r'api_usuarios',UsuariosViewSet)
-router.register(r'api_productos',ProductoViewSet)
-router.register(r'api_proveedores',ProveedoresViewSet)
+
+rut= 'Aplicaciones\Principal'
+
+router.register('api/usuarios', UsuariosViewSet, rut)
+router.register('api/proveedores', ProveedoresViewSet, rut)
+router.register('api/productos', ProductoViewSet, rut)
 
 urlpatterns = router.urls
 
