@@ -6,9 +6,9 @@ from .api import UsuariosViewSet,ProductoViewSet,ProveedoresViewSet
 router = routers.DefaultRouter()
 
 
-router.register('api/usuarios', UsuariosViewSet, 'usuarios')
-router.register('api/proveedores', ProveedoresViewSet, 'proveedores')
-router.register('api/productos', ProductoViewSet, 'productos')
+router.register('api/usua', UsuariosViewSet, 'usuarios')
+router.register('api/prove', ProveedoresViewSet, 'proveedores')
+router.register('api/produ', ProductoViewSet, 'productos')
 
 urlpatterns = router.urls
 
