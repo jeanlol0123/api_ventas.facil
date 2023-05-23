@@ -51,7 +51,7 @@ class Usuarios(models.Model):
         super().save(*args, **kwargs)
     
     class Meta:
-        db_table = 'usuarios_'
+        db_table = 'Usuarios'
 
 
 #DATABASE DE PRODUCTOS
