@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'ventasFacil.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='sqlite:///db.sqlite3',
         conn_max_age=600
     )
 }
